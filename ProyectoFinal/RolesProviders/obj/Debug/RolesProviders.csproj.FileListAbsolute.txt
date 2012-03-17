@@ -1,0 +1,5 @@
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\RolesProviders.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\RolesProviders.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\obj\Debug\RolesProviders.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\obj\Debug\RolesProviders.pdb

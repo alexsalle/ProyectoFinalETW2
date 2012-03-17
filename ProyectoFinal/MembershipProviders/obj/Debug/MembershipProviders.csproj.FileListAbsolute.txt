@@ -1,0 +1,5 @@
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\MembershipProviders.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\MembershipProviders.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\obj\Debug\MembershipProviders.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\obj\Debug\MembershipProviders.pdb
