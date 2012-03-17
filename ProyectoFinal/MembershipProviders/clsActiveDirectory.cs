@@ -13,10 +13,10 @@ namespace MembershipProviders
     {
         #region Variables
 
-        private static string Domain = ConfigurationManager.AppSettings["ADDomain"].ToString();
-        private static string Path = ConfigurationManager.AppSettings["ADPath"].ToString();
-        private static string AdminUser = ConfigurationManager.AppSettings["ADAdminUser"].ToString();
-        private static string AdminPassword = ConfigurationManager.AppSettings["ADAdminPassword"].ToString();
+        private static string DOMAIIN = ConfigurationManager.AppSettings["ADDomain"].ToString();
+        private static string PATH_DOMAIN = ConfigurationManager.AppSettings["ADPath"].ToString();
+        private static string ADMIN_USER = ConfigurationManager.AppSettings["ADAdminUser"].ToString();
+        private static string ADMIN_PASSWORD = ConfigurationManager.AppSettings["ADAdminPassword"].ToString();
 
         #endregion
 
