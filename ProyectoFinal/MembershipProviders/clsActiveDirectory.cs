@@ -13,22 +13,23 @@ namespace MembershipProviders
     {
         #region Variables
 
-        private static string DOMAIIN = ConfigurationManager.AppSettings["ADDomain"].ToString();
+        private static string DOMAIN = ConfigurationManager.AppSettings["ADDomain"].ToString();
         private static string PATH_DOMAIN = ConfigurationManager.AppSettings["ADPath"].ToString();
         private static string ADMIN_USER = ConfigurationManager.AppSettings["ADAdminUser"].ToString();
         private static string ADMIN_PASSWORD = ConfigurationManager.AppSettings["ADAdminPassword"].ToString();
 
         #endregion
 
+        public string appName { get; set; }
         public override string ApplicationName
         {
             get
             {
-                throw new NotImplementedException();
+                return appName;
             }
             set
             {
-                throw new NotImplementedException();
+                appName = value;
             }
         }
 
@@ -44,7 +45,45 @@ namespace MembershipProviders
 
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
         {
-            throw new NotImplementedException();
+            UserPrincipal user = GetUser(username) ?? null;
+   
+            if (user == null)
+            {
+                user = new UserPrincipal(GetPrincipalContext());
+                //User Log on Name
+                user.SamAccountName = username;
+                user.SetPassword(password);
+                user.Enabled = true;
+                user.UserPrincipalName = username;
+                user.GivenName = username;
+                user.Surname = username;
+                user.EmailAddress = email;
+                user.UserCannotChangePassword = false;
+                user.DisplayName = username;
+                try
+                {
+                    user.Save();
+
+                    MembershipUser msUser = new MembershipUser("ActiveDirectoryMembershipProvider", user.SamAccountName, providerUserKey, user.EmailAddress, string.Empty, string.Empty, true, user.IsAccountLockedOut(), DateTime.MinValue, user.LastLogon ?? DateTime.Now, user.LastBadPasswordAttempt ?? DateTime.Now, user.LastPasswordSet ?? DateTime.Now, user.AccountLockoutTime ?? DateTime.Now);
+                    status = MembershipCreateStatus.Success;
+                    return msUser;
+                }
+                catch (Exception ex)
+                {
+                    // verificamos que efectivamente no se cree el usuario
+                    var usr = GetUser(username) ?? null;
+                    if (usr != null)
+                        usr.Delete();
+                    status = MembershipCreateStatus.UserRejected;
+                    return null;
+                }
+            }
+            else
+            {
+                MembershipUser msUser = new MembershipUser("ActiveDirectoryMembershipProvider", user.SamAccountName, providerUserKey, user.EmailAddress, string.Empty, string.Empty, true, user.IsAccountLockedOut(), DateTime.MinValue, user.LastLogon ?? DateTime.Now, user.LastBadPasswordAttempt ?? DateTime.Now, user.LastPasswordSet ?? DateTime.Now, user.AccountLockoutTime ?? DateTime.Now);
+                status = MembershipCreateStatus.DuplicateUserName;
+                return msUser;
+            }
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
@@ -114,7 +153,7 @@ namespace MembershipProviders
 
         public override int MinRequiredPasswordLength
         {
-            get { throw new NotImplementedException(); }
+            get { return 6; }
         }
 
         public override int PasswordAttemptWindow
@@ -134,7 +173,7 @@ namespace MembershipProviders
 
         public override bool RequiresQuestionAndAnswer
         {
-            get { throw new NotImplementedException(); }
+            get { return false; }
         }
 
         public override bool RequiresUniqueEmail
@@ -159,7 +198,43 @@ namespace MembershipProviders
 
         public override bool ValidateUser(string username, string password)
         {
-            throw new NotImplementedException();
+            PrincipalContext oPrincipalContext = GetPrincipalContext();
+            return oPrincipalContext.ValidateCredentials(username, password);
         }
+
+
+        #region Private Methods
+
+        private UserPrincipal GetUser(String strUserName)
+        {
+            UserPrincipal objUser = UserPrincipal.FindByIdentity(GetPrincipalContext(), strUserName);
+            return objUser;
+        }
+        private GroupPrincipal GetGroup(String strGroupName)
+        {
+            GroupPrincipal objGroup = GroupPrincipal.FindByIdentity(GetPrincipalContext(), strGroupName);
+            return objGroup;
+        }
+        private String[] SearchGroups(GroupPrincipal gpGroup)
+        {
+            PrincipalSearcher objSearcher = new PrincipalSearcher();
+            objSearcher.QueryFilter = gpGroup;
+            PrincipalSearchResult<Principal> results = objSearcher.FindAll();
+            List<String> roles = new List<String>();
+            foreach (Principal p in results)
+            {
+                roles.Add(p.Name);
+            }
+            return roles.ToArray();
+        }
+
+        private PrincipalContext GetPrincipalContext()
+        {
+            //PrincipalContext objContext = new PrincipalContext(ContextType.Domain, DOMAIN, PATH_DOMAIN, ContextOptions.SimpleBind, ADMIN_USER, ADMIN_PASSWORD);
+           PrincipalContext objContext = new PrincipalContext(ContextType.Domain, DOMAIN, ADMIN_USER, ADMIN_PASSWORD);
+           return objContext;
+        }
+
+        #endregion
     }
 }
