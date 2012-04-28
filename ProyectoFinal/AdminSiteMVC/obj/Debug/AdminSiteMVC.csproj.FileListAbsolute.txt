@@ -1,0 +1,7 @@
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\bin\AdminSiteMVC.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\bin\AdminSiteMVC.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\bin\EntityFramework.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\bin\EntityFramework.xml
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\obj\Debug\AdminSiteMVC.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\AdminSiteMVC\obj\Debug\AdminSiteMVC.pdb

@@ -76,7 +76,7 @@ namespace RolesProviders
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {
             var usrs = GetUsersInRole(roleName);
-            var result = usrs.Where(p => p.Contains(""));
+            var result = usrs.Where(p => p.Contains(usernameToMatch));
 
             return result.ToArray();
         }
@@ -178,6 +178,8 @@ namespace RolesProviders
             PrincipalContext objContext = new PrincipalContext(ContextType.Domain, DOMAIN, ADMIN_USER, ADMIN_PASSWORD);
             return objContext;
         }
+
+        
 
         #endregion
     }

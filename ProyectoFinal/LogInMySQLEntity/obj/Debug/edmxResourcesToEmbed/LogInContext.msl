@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbmysqlModelStoreContainer" CdmEntityContainer="dbmysqlEntities">
+    <EntitySetMapping Name="groups">
+      <EntityTypeMapping TypeName="dbmysqlModel.group">
+        <MappingFragment StoreEntitySet="groups">
+          <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="dbmysqlModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="UserName" ColumnName="User" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usersgroups">
+      <EntityTypeMapping TypeName="dbmysqlModel.usersgroup">
+        <MappingFragment StoreEntitySet="usersgroups">
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

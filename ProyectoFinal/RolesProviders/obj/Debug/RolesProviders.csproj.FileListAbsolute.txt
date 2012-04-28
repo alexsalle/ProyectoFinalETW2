@@ -3,3 +3,8 @@ C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\P
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\obj\Debug\RolesProviders.dll
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\obj\Debug\RolesProviders.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\RolesProviders.dll.config
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\LogInMySQLEntity.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\LogInMySQLEntity.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\RolesProviders\bin\Debug\EntityFramework.xml

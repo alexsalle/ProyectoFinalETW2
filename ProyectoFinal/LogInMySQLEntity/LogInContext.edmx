@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbmysqlModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="dbmysqlModelStoreContainer">
+          <EntitySet Name="groups" EntityType="dbmysqlModel.Store.groups" store:Type="Tables" Schema="dbmysql" />
+          <EntitySet Name="users" EntityType="dbmysqlModel.Store.users" store:Type="Tables" Schema="dbmysql" />
+          <EntitySet Name="usersgroups" EntityType="dbmysqlModel.Store.usersgroups" store:Type="Tables" Schema="dbmysql" />
+        </EntityContainer>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="IdGroups" />
+          </Key>
+          <Property Name="IdGroups" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="IdUsers" />
+          </Key>
+          <Property Name="IdUsers" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User" Type="text" Nullable="false" />
+          <Property Name="Password" Type="longtext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usersgroups">
+          <Key>
+            <PropertyRef Name="IdUsers" />
+            <PropertyRef Name="IdGroups" />
+          </Key>
+          <Property Name="IdUsers" Type="int" Nullable="false" />
+          <Property Name="IdGroups" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbmysqlModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="dbmysqlEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="groups" EntityType="dbmysqlModel.group" />
+          <EntitySet Name="users" EntityType="dbmysqlModel.user" />
+          <EntitySet Name="usersgroups" EntityType="dbmysqlModel.usersgroup" />
+        </EntityContainer>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="IdGroups" />
+          </Key>
+          <Property Name="IdGroups" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="IdUsers" />
+          </Key>
+          <Property Name="IdUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usersgroup">
+          <Key>
+            <PropertyRef Name="IdUsers" />
+            <PropertyRef Name="IdGroups" />
+          </Key>
+          <Property Name="IdUsers" Type="Int32" Nullable="false" />
+          <Property Name="IdGroups" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbmysqlModelStoreContainer" CdmEntityContainer="dbmysqlEntities">
+          <EntitySetMapping Name="groups"><EntityTypeMapping TypeName="dbmysqlModel.group"><MappingFragment StoreEntitySet="groups">
+            <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+            <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="users"><EntityTypeMapping TypeName="dbmysqlModel.user"><MappingFragment StoreEntitySet="users">
+            <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+            <ScalarProperty Name="UserName" ColumnName="User" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="usersgroups"><EntityTypeMapping TypeName="dbmysqlModel.usersgroup"><MappingFragment StoreEntitySet="usersgroups">
+            <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+            <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="LogInContext">
+        <EntityTypeShape EntityType="dbmysqlModel.group" Width="1.5" PointX="0.75" PointY="0.5" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbmysqlModel.user" Width="1.5" PointX="2.5" PointY="0.5" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbmysqlModel.usersgroup" Width="1.5" PointX="4.5" PointY="1" Height="1.2636116536458335" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

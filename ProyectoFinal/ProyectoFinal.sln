@@ -61,7 +61,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdminSite", "http://localho
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{636354F7-C15F-41A5-B0C8-88AC1AC3B52F}|MembershipProviders.dll;{4929D1C6-FD76-4FCC-AE03-434AC702F759}|RolesProviders.dll;"
+		ProjectReferences = "{636354F7-C15F-41A5-B0C8-88AC1AC3B52F}|MembershipProviders.dll;{4929D1C6-FD76-4FCC-AE03-434AC702F759}|RolesProviders.dll;{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}|LogInMySQLEntity.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/AdminSite"
 		Debug.AspNetCompiler.PhysicalPath = "AdminSite\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AdminSite\"
@@ -77,6 +77,31 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdminSite", "http://localho
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "..\..\..\..\..\..\..\inetpub\wwwroot\AdminSite\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogInMySQLEntity", "LogInMySQLEntity\LogInMySQLEntity.csproj", "{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdminSiteMVC", "http://localhost/AdminSiteMVC", "{787B59E1-A8DE-4B74-837D-F90F7FD30E1D}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{636354F7-C15F-41A5-B0C8-88AC1AC3B52F}|MembershipProviders.dll;{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}|LogInMySQLEntity.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/AdminSiteMVC"
+		Debug.AspNetCompiler.PhysicalPath = "AdminSiteMVC\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AdminSiteMVC\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/AdminSiteMVC"
+		Release.AspNetCompiler.PhysicalPath = "AdminSiteMVC\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\AdminSiteMVC\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\..\..\..\inetpub\wwwroot\AdminSiteMVC\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -98,6 +123,14 @@ Global
 		{A10FF571-7D25-4955-9650-E8B8C79E29A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A10FF571-7D25-4955-9650-E8B8C79E29A3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{A10FF571-7D25-4955-9650-E8B8C79E29A3}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB7CB5A3-4247-4C44-B13C-83F3B744BC50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787B59E1-A8DE-4B74-837D-F90F7FD30E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787B59E1-A8DE-4B74-837D-F90F7FD30E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787B59E1-A8DE-4B74-837D-F90F7FD30E1D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{787B59E1-A8DE-4B74-837D-F90F7FD30E1D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +144,7 @@ Global
 		{0946979B-1ECE-4C08-A9B2-8551B17D4B27} = {9AE8EA36-9A72-4A42-A7EC-684A4CD8B342}
 		{74073ECB-6A19-4E9B-9A4B-9BC684477FAB} = {B995C3BC-1C99-48BA-8AF5-4AD97DEC585D}
 		{A308791F-6467-4214-A86A-66D643929E5E} = {B995C3BC-1C99-48BA-8AF5-4AD97DEC585D}
+		{787B59E1-A8DE-4B74-837D-F90F7FD30E1D} = {74073ECB-6A19-4E9B-9A4B-9BC684477FAB}
 		{A10FF571-7D25-4955-9650-E8B8C79E29A3} = {A308791F-6467-4214-A86A-66D643929E5E}
 		{670377BA-1C77-4464-91AD-E8137B134DA2} = {0EABC4CF-B5F3-4690-8016-BD22F4C60FF2}
 		{ECED3209-C236-403D-9726-48E7ADC138CB} = {0EABC4CF-B5F3-4690-8016-BD22F4C60FF2}
@@ -126,5 +160,6 @@ Global
 		{3187848D-4A96-49B4-91FA-B750ADAF0C60} = {49E2E245-9D96-452D-B521-6F421A6B3EFD}
 		{636354F7-C15F-41A5-B0C8-88AC1AC3B52F} = {722B6000-6DE8-4B79-B04D-8D632FE9D230}
 		{4929D1C6-FD76-4FCC-AE03-434AC702F759} = {722B6000-6DE8-4B79-B04D-8D632FE9D230}
+		{DB7CB5A3-4247-4C44-B13C-83F3B744BC50} = {903F3ABC-A113-4793-A651-275E3FF95E78}
 	EndGlobalSection
 EndGlobal

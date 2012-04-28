@@ -6,6 +6,8 @@ using System.Text;
 using System.Web.Security;
 using System.DirectoryServices.AccountManagement;
 using System.Configuration;
+using Tamir.SharpSsh;
+using System.Net.Mail;
 
 namespace MembershipProviders
 {
@@ -65,6 +67,23 @@ namespace MembershipProviders
                     user.Save();
 
                     MembershipUser msUser = new MembershipUser("ActiveDirectoryMembershipProvider", user.SamAccountName, providerUserKey, user.EmailAddress, string.Empty, string.Empty, true, user.IsAccountLockedOut(), DateTime.MinValue, user.LastLogon ?? DateTime.Now, user.LastBadPasswordAttempt ?? DateTime.Now, user.LastPasswordSet ?? DateTime.Now, user.AccountLockoutTime ?? DateTime.Now);
+
+                    // Nos conectamos via SSH hacia el servidor de Zimbra
+                    SshExec exec = new SshExec("mail.dxstudio.net", "alex");
+                    exec.Password = "admin123";
+                    exec.Connect();
+                    // Una vez conectados al servidor de Zimbra
+                    // estructuramos y armamos el comando Linux 
+                    // necesario crear el MailBox
+                    string strCommand = string.Empty;
+                    strCommand = "/opt/zimbra/bin/./zmprov -a admin -p Admin1234 ca " + user.SamAccountName + "@dxstudio.net SoyUnPassword";
+                    // Ejecutamos el comando Linux para crear el MailBox
+                    strCommand = exec.RunCommand(strCommand);
+                    // Cerreamos la Conexion SSH
+                    exec.Close();
+                    // Enviamos Mensaje de bienvenida
+                    SenMail(user.SamAccountName);
+
                     status = MembershipCreateStatus.Success;
                     return msUser;
                 }
@@ -88,7 +107,31 @@ namespace MembershipProviders
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
         {
-            throw new NotImplementedException();
+            var usr = GetUser(username) ?? null;
+            if (usr != null)
+            {
+                try
+                {
+                    usr.Delete();
+                    //borramos el mailbox
+                    SshExec exec = new SshExec("mail.dxstudio.net", "alex");
+                    exec.Password = "admin123";
+                    exec.Connect();
+                    string strCommand = string.Empty;
+                    strCommand = "/opt/zimbra/bin/./zmprov -a admin -p Admin1234 da " + usr.SamAccountName + "@dxstudio.net";
+                    // Ejecutamos el comando Linux para eliminar el MailBox
+                    strCommand = exec.RunCommand(strCommand);
+                    // Cerreamos la Conexion SSH
+                    exec.Close();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+                return false;
         }
 
         public override bool EnablePasswordReset
@@ -233,6 +276,35 @@ namespace MembershipProviders
             //PrincipalContext objContext = new PrincipalContext(ContextType.Domain, DOMAIN, PATH_DOMAIN, ContextOptions.SimpleBind, ADMIN_USER, ADMIN_PASSWORD);
            PrincipalContext objContext = new PrincipalContext(ContextType.Domain, DOMAIN, ADMIN_USER, ADMIN_PASSWORD);
            return objContext;
+        }
+
+        protected void SenMail(string username)
+        {
+	        MailMessage correo = new MailMessage();
+            StringBuilder mensaje = new StringBuilder();
+            correo.From = new MailAddress("admin@dxstudio.net", "Administrador");
+            correo.Bcc.Add("admin@dxstudio.net");
+            correo.To.Add(new MailAddress(username + "@dxstudio.net", username));
+            correo.Subject = "Bienvenido";
+            correo.IsBodyHtml = true;
+            //Encabezado HTML
+            mensaje.Append("<h3>Bienvenido</h3>");
+            mensaje.Append("<div>Gracias por registrarte " + username);
+            mensaje.Append("</div>");
+            correo.Body = mensaje.ToString();
+            correo.Priority = MailPriority.High;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Port = 25;
+            smtp.Host = "mail.dxstudio.net";
+            smtp.Credentials= new System.Net.NetworkCredential("admin", "Admin1234");                   
+	        try
+            {
+        	    smtp.Send(correo);                
+       	    }
+            catch(Exception ex)
+	        {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         #endregion

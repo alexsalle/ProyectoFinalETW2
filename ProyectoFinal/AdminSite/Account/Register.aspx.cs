@@ -12,6 +12,11 @@ public partial class Account_Register : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+
+        //TextBox txtEmail = (TextBox)RegisterUser.FindControl("Email");
+        //txtEmail.Text = "Lol";
+
+        
     }
 
     protected void RegisterUser_CreatedUser(object sender, EventArgs e)
@@ -25,5 +30,4 @@ public partial class Account_Register : System.Web.UI.Page
         }
         Response.Redirect(continueUrl);
     }
-
 }

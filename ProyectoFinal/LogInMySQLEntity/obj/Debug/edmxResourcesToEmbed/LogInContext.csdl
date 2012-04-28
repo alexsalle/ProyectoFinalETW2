@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbmysqlModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="dbmysqlEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="groups" EntityType="dbmysqlModel.group" />
+    <EntitySet Name="users" EntityType="dbmysqlModel.user" />
+    <EntitySet Name="usersgroups" EntityType="dbmysqlModel.usersgroup" />
+  </EntityContainer>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="IdGroups" />
+    </Key>
+    <Property Name="IdGroups" Type="Int32" Nullable="false" />
+    <Property Name="GroupName" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="IdUsers" />
+    </Key>
+    <Property Name="IdUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usersgroup">
+    <Key>
+      <PropertyRef Name="IdUsers" />
+      <PropertyRef Name="IdGroups" />
+    </Key>
+    <Property Name="IdUsers" Type="Int32" Nullable="false" />
+    <Property Name="IdGroups" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,6 @@
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\LogInMySQLEntity\bin\Debug\LogInMySQLEntity.dll.config
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\LogInMySQLEntity\bin\Debug\LogInMySQLEntity.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\LogInMySQLEntity\bin\Debug\LogInMySQLEntity.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\LogInMySQLEntity\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\LogInMySQLEntity\obj\Debug\LogInMySQLEntity.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\LogInMySQLEntity\obj\Debug\LogInMySQLEntity.pdb

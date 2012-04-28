@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbmysqlModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="dbmysqlModelStoreContainer">
+    <EntitySet Name="groups" EntityType="dbmysqlModel.Store.groups" store:Type="Tables" Schema="dbmysql" />
+    <EntitySet Name="users" EntityType="dbmysqlModel.Store.users" store:Type="Tables" Schema="dbmysql" />
+    <EntitySet Name="usersgroups" EntityType="dbmysqlModel.Store.usersgroups" store:Type="Tables" Schema="dbmysql" />
+  </EntityContainer>
+  <EntityType Name="groups">
+    <Key>
+      <PropertyRef Name="IdGroups" />
+    </Key>
+    <Property Name="IdGroups" Type="int" Nullable="false" />
+    <Property Name="GroupName" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="IdUsers" />
+    </Key>
+    <Property Name="IdUsers" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="User" Type="text" Nullable="false" />
+    <Property Name="Password" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usersgroups">
+    <Key>
+      <PropertyRef Name="IdUsers" />
+      <PropertyRef Name="IdGroups" />
+    </Key>
+    <Property Name="IdUsers" Type="int" Nullable="false" />
+    <Property Name="IdGroups" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

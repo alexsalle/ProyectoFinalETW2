@@ -1,5 +1,13 @@
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\MembershipProviders.dll
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\MembershipProviders.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\Tamir.SharpSSH.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\DiffieHellman.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\Org.Mentalis.Security.dll
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\obj\Debug\MembershipProviders.dll
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\obj\Debug\MembershipProviders.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\MembershipProviders.dll.config
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\LogInMySQLEntity.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\LogInMySQLEntity.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\ProyectoFinalETW2\ProyectoFinal\MembershipProviders\bin\Debug\EntityFramework.xml
